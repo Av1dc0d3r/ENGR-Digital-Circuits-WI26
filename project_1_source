@@ -24,8 +24,11 @@ module project_1_source(
     input [7:0] sw,
     output [1:0] led
     );
-    
+
+    // led 0 = 1 when 2 switches are open and 2 switches are closed
     assign led[0] = sw[0] & sw[1] | sw[0] & sw[2] | sw[0] & sw[3] | sw[1] & sw[2] | sw[1] & sw[3] | sw[2] & sw[3];
+
+    // led 1 = 1 when 1 switch is open and the rest is closed
     assign led[1] = (~sw[4] & ~sw[5] & ~sw[6] & sw[7]) | (~sw[4] & ~sw[5] & sw[6] & ~sw[7]) | (sw[4] & ~sw[5] & ~sw[6] & ~sw[7]) | (~sw[4] & sw[5] & ~sw[6] & ~sw[7]);
     
 endmodule
