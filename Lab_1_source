@@ -24,9 +24,13 @@ module project_1_sources(
     input [7:0] sw,
     output [2:0] led
     );
-    
+    //led 0 = 1 when there is only a 1 and a 0 or an XOR gate
     assign led[0] = ~sw[1] & sw[0] | sw[1] & ~sw[0];
+
+    //led 1 = 1 when all 3 switches are turned off or when switch 3 or 2 is turned off and the rest is turned on
     assign led[1] = ~sw[3] & ~sw[2] & ~sw[1] | ~sw[3] & sw[2] & sw[1] | sw[3] & ~sw[2] & sw[1];
+
+    //led 2 = 1 when all switches are turned off or turned on or when switch 7 and switch 6 or 5 is off and the rest is on
     assign led[2] = ~sw[7] & ~sw[6] & ~sw[5] & sw[4] | ~sw[7] & ~sw[6] & sw[5] & sw[4] | 
         ~sw[7] & sw[6] & ~sw[5] & ~sw[4] | sw[7] & sw[6] & sw[5] & sw[4];
     
