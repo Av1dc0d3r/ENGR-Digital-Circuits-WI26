@@ -1,0 +1,33 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: H, Thaknin
+// 
+// Create Date: 01/14/2026 03:46:41 PM
+// Design Name: Geuss the logic
+// Module Name: project_1_sources
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module project_1_sources(    
+    input [7:0] sw,
+    output [2:0] led
+    );
+    
+    assign led[0] = ~sw[1] & sw[0] | sw[1] & ~sw[0];
+    assign led[1] = ~sw[3] & ~sw[2] & ~sw[1] | ~sw[3] & sw[2] & sw[1] | sw[3] & ~sw[2] & sw[1];
+    assign led[2] = ~sw[7] & ~sw[6] & ~sw[5] & sw[4] | ~sw[7] & ~sw[6] & sw[5] & sw[4] | 
+        ~sw[7] & sw[6] & ~sw[5] & ~sw[4] | sw[7] & sw[6] & sw[5] & sw[4];
+    
+endmodule
