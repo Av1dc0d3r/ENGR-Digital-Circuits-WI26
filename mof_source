@@ -1,0 +1,60 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:H, Thaknin
+// 
+// Create Date: 01/20/2026 07:54:53 PM
+// Design Name: 
+// Module Name: mof_source
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module mof_source(
+    input [4:0] sw,
+    output led
+    );
+    
+    assign led = (~sw[4] & ~sw[3] & sw[2] & sw[1] & sw[0]) |
+                 
+                 (~sw[4] & sw[3] & ~sw[2] & sw[1] & sw[0]) |
+                 
+                 (~sw[4] & sw[3] & sw[2] & ~sw[1] & sw[0]) |
+                 
+                 (~sw[4] & sw[3] & sw[2] & sw[1] & ~sw[0]) |
+                 
+                 (~sw[4] & sw[3] & sw[2] & sw[1] & sw[0]) |
+                 
+                 (sw[4] & ~sw[3] & ~sw[2] & sw[1] & sw[0]) |
+                 
+                 (sw[4] & ~sw[3] & sw[2] & ~sw[1] & sw[0]) |
+                 
+                 (sw[4] & ~sw[3] & sw[2] & sw[1] & ~sw[0]) |
+                 
+                 (sw[4] & ~sw[3] & sw[2] & sw[1] & sw[0]) |
+                 
+                 (sw[4] & sw[3] & ~sw[2] & ~sw[1] & sw[0]) |
+                 
+                 (sw[4] & sw[3] & ~sw[2] & sw[1] & ~sw[0]) |
+                 
+                 (sw[4] & sw[3] & ~sw[2] & sw[1] & sw[0]) |
+                 
+                 (sw[4] & sw[3] & sw[2] & ~sw[1] & ~sw[0]) |
+                 
+                 (sw[4] & sw[3] & sw[2] & ~sw[1] & sw[0]) |
+                 
+                 (sw[4] & sw[3] & sw[2] & sw[1] & ~sw[0]) |
+                 
+                 (sw[4] & sw[3] & sw[2] & sw[1] & sw[0]);
+                 
+endmodule
