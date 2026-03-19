@@ -44,7 +44,7 @@
         
         reg [1:0] state;       
         
-        always @ (posedge clk or posedge rst)
+        always @ (posedge timer_clk or posedge rst)
         
             begin
                 if (rst) begin
